@@ -1,14 +1,12 @@
 import React from 'react';
 import Heading from "./Header";
-import Input from "./Input";
+import Input from "./Search";
 
 function App() {
     return(
      <div>
           <Heading />
-        <div className="container">
           <Input />
-        </div>
      </div>
   );
 }
