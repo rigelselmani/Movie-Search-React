@@ -3,45 +3,40 @@ import Header from "./Header"
 import Search from "./Search";
 import Movie from "./Movie";
 
-const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b"
-
+const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=4a3b711b";
 
 function App(){
 
-   const [loading,setLoading]=useState(true);
-   const [ movies,setMovies]=useState([]);
-   const [errorMessage,setErrorMessage] = useState(null);
-   
-   useEffect(()=>{
-   fetch(MOVIE_API_URL)
-      .then(response=>response.json())
-      .then(jsonResponse =>{
-        setMovies(jsonResponse.Search);
-      //   setLoading(false);
-      })
-   },[]);
+   const [movies,setMovies]=useState([]);
 
-    function search(){
-       setLoading(true);
-       setErrorMessage(false)
-    }
-  
-      console.log(MOVIE_API_URL)
-   return <div className="App">
-               <Header />
-               <Search search={search} />
-               <div className="movies">
-                  {loading && !errorMessage ?(
-                     <span>loading...</span>
-                  ):errorMessage ? (
-                     <div className="errorMessage">{errorMessage}</div>
-                  ) :(
-                     movies.map((movie, index)=>(
-                        <Movie key={`${index}-${movie.Title}`} movie={movie} />
-                     ))
-                  )}
-               </div>
-          </div>
+   useEffect(() =>{
+      fetch(MOVIE_API_URL)
+      .then(response => response.json())
+      .then(jsonResponse =>{
+         setMovies(jsonResponse.Search);
+      });
+  }, []);
+
+
+ function searchValue(){
+
+  fetch("https://www.omdbapi.com/?s="+{searchValue}+"&apikey=4a3b711b")
+  .then(response => response.json())
+  .then(jsonResponse =>{
+     setMovies(jsonResponse.Search)
+  })
 }
+
+   return (
+   <div className="App">
+      <Header />
+      <Search search={searchValue} />
+      {movies.map((movie,index) =>(
+         <Movie key={index} name={movie.Title} post={movie.Poster} year={movie.Year}/>
+      ))}
+   </div>
+   )
+}
+
 
 export default App;
