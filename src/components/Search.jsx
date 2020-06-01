@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function Search(props){
     const[searchValue,setSearchValue]=useState("");
+   
     function handleChange(event){
        setSearchValue(event.target.value)
     }
@@ -10,9 +11,10 @@ function Search(props){
         event.preventDefault();
         props.search(searchValue)
     }
+    
 
     return   <form>
-                 <input value={searchValue} onChange={handleChange} type="text" />
+                 <input onChange={handleChange} value={searchValue} type="text" />
                  <input onClick={handleClick} className="submit" value="search" type="submit" />
              </form>
           
