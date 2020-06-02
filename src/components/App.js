@@ -18,9 +18,8 @@ function App(){
   }, []);
 
 
- function searchValue(){
-
-  fetch("https://www.omdbapi.com/?s="+{searchValue}+"&apikey=4a3b711b")
+  function searchValue(inputText){
+  fetch("https://www.omdbapi.com/?s="+inputText+"&apikey=4a3b711b")
   .then(response => response.json())
   .then(jsonResponse =>{
      setMovies(jsonResponse.Search)
