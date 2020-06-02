@@ -7,17 +7,13 @@ function Search(props){
        setSearchValue(event.target.value)
     }
 
-    // function handleClick(e){
-    //    e.preventDefault();
-    //    props.search(searchValue)
-    // }
-    
-
     return   <form>
-                 <input onChange={handleChange} value={searchValue} type="text" />
+                 <input className="input" placeholder="Search For Movie" onChange={handleChange} value={searchValue} type="text" />
                  <input  onClick={(e) => {
                   e.preventDefault();
-                 props.search(searchValue);}}
+                 props.search(searchValue)
+                  setSearchValue("")
+                 ;}}
                  className="submit" value="search" type="submit" />
              </form>
           

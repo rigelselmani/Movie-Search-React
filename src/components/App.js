@@ -30,9 +30,11 @@ function App(){
    <div className="App">
       <Header />
       <Search search={searchValue} />
+      <div className="container">
       {movies.map((movie,index) =>(
          <Movie key={index} name={movie.Title} post={movie.Poster} year={movie.Year}/>
       ))}
+      </div>
    </div>
    )
 }
