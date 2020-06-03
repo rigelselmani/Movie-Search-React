@@ -1,7 +1,7 @@
 import React from "react";
 
 const DEFAULT_PLACEHOLDER_IMAGE =
-  "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg";
+  "http://2.bp.blogspot.com/-I91kB3xYppQ/TZDPvc-ilzI/AAAAAAAABvw/JQBz0_8E_I4/s1600/Natural+Scenes+%25286%2529.jpg";
 
 function Movie(props){
 
@@ -11,7 +11,7 @@ function Movie(props){
             <div className="title">
               <h2 className="movie-title">{props.name}</h2>
             </div>
-              <div>
+              <div className="">
                   <img width="200" height="300"  alt={props.post} src={poster} />
               </div>
               <p>{props.year}</p>
